@@ -253,6 +253,7 @@ static const NSString * CSToastActivityViewKey  = @"CSToastActivityViewKey";
         messageLabel.textColor = [UIColor whiteColor];
         messageLabel.backgroundColor = [UIColor clearColor];
         messageLabel.alpha = 1.0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
         messageLabel.text = message;
         
         // size the message label according to the length of the text
