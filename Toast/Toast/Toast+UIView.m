@@ -9,6 +9,7 @@
 #import "Toast+UIView.h"
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
+#import "ZyngaAdUtils.h"
 
 /*
  *  CONFIGURE THESE VALUES TO ADJUST LOOK & FEEL,
@@ -231,7 +232,11 @@ static const NSString * CSToastActivityViewKey  = @"CSToastActivityViewKey";
     if (title != nil) {
         titleLabel = [[[UILabel alloc] init] autorelease];
         titleLabel.numberOfLines = CSToastMaxTitleLines;
-        titleLabel.font = [UIFont boldSystemFontOfSize:CSToastFontSize];
+        titleLabel.font = [UIFont fontWithName:kZyngaFontName size:CSToastFontSize];
+        if (!titleLabel.font)
+        {
+            titleLabel.font = [UIFont systemFontOfSize:CSToastFontSize];
+        }
         titleLabel.textAlignment = NSTextAlignmentLeft;
         titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         titleLabel.textColor = [UIColor whiteColor];
@@ -248,7 +253,11 @@ static const NSString * CSToastActivityViewKey  = @"CSToastActivityViewKey";
     if (message != nil) {
         messageLabel = [[[UILabel alloc] init] autorelease];
         messageLabel.numberOfLines = CSToastMaxMessageLines;
-        messageLabel.font = [UIFont systemFontOfSize:CSToastFontSize];
+        messageLabel.font = [UIFont fontWithName:kZyngaFontName size:CSToastFontSize];
+        if (!messageLabel.font)
+        {
+            messageLabel.font = [UIFont systemFontOfSize:CSToastFontSize];
+        }
         messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
         messageLabel.textColor = [UIColor whiteColor];
         messageLabel.backgroundColor = [UIColor clearColor];
